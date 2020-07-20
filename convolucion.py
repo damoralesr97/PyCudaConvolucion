@@ -10,6 +10,7 @@ from PIL import Image
 
 from flask import Flask, render_template, request, send_file
 import os
+from io import BytesIO
 
 
 
@@ -132,10 +133,10 @@ def practica():
         print(pixeles[:10])
         print ("-" * 80)
         print ("KERNEL 1 (CPU):")
-        print(kernel[:MASK_SIZE])
+        print(kernel[:int(MASK_SIZE)])
         print ("-" * 80)
         print ("KERNEL 2 (CPU):")
-        print(kernel2[:MASK_SIZE])
+        print(kernel2[:int(MASK_SIZE)])
         print ("-" * 80)
         print ("CONVOLUCION 1 (GPU):")
         print(result)
@@ -149,11 +150,14 @@ def practica():
         matt = np.reshape(resta,(1024,1024))
 
         ig = Image.fromarray(np.uint8(matt))
-        ig.save('resultado.png')
+        
+        img_io=BytesIO()
+        ig.save(img_io,"PNG")
+        img_io.seek(0)
     
         ctx.pop()
         
-        return "HOLA";
+        return send_file(img_io,mimetype='image/PNG');
     return render_template('index.html');
 
 if __name__ == "__main__":
