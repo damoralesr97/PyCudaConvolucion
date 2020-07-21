@@ -10,7 +10,6 @@ from PIL import Image
 
 from flask import Flask, render_template, request, send_file
 import os
-from io import BytesIO
 
 
 
@@ -150,18 +149,18 @@ def practica():
         matt = np.reshape(resta,(1024,1024))
 
         ig = Image.fromarray(np.uint8(matt))
+        ig.save('resultado.png')
         
-        img_io=BytesIO()
-        ig.save(img_io,"PNG")
-        img_io.seek(0)
-    
+        
         ctx.pop()
+
         
-        return send_file(img_io,mimetype='image/PNG');
+        return send_file('resultado.png',mimetype='image/PNG');
     return render_template('index.html');
 
 if __name__ == "__main__":
-    app.run()
+    app.run(host="0.0.0.0", port=int("5000"), debug=False)
+    #app.run()
 
 
 

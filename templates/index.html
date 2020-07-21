@@ -2,28 +2,80 @@
 <html>
     <head>
         <title>Practica 05</title>
+        <style>
+            body {
+                background-color: #92a8d1;
+            }
+            h1 {
+                text-align: center;
+            }
+            h3 {
+                text-align: center;
+            }
+            .imagenes {
+                text-align: center;
+            }
+            .mascara {
+                text-align: center;
+            }
+            .sigma {
+                text-align: center;
+            }
+            
+            .enter {
+                border: none;
+                background-color: #4CAF50;
+                color: white;
+                padding: 15px 32px;
+                text-decoration: none;
+                font-size: 16px;
+                display: inline-block;
+            }
+            
+            form {
+                text-align: center;
+            }
+        </style>
     </head>
     <body>
-        <h1>Practica 05 - Convolucion de imagenes - CUDA - Flask - Dockers</h1>
+        <h1>Practica 05 - Convolucion de imagenes - CUDA - PyCUDA - Flask - Dockers</h1>
+        <h3>David Morales - Bryam Vega - Yandry Romero</h3>
         
         </br>
         
         <form role="form" method='POST' enctype="multipart/form-data">
-            <div>
+            <div class="imagenes">
             
                 <label>
                     <input type="radio" id="img1" name="imagen" value="static/arbol.png"></input>
                     <img style='width: 150px;' src="static/arbol.png">
                 </label>
                 <label>
-                    <input type="radio" id="img2" name="imagen" value="static/arbol.png"></input>
-                    <img style='width: 150px;' src="static/arbol.png">
+                    <input type="radio" id="img2" name="imagen" value="static/golden.png"></input>
+                    <img style='width: 150px;' src="static/golden.png">
+                </label>
+                <label>
+                    <input type="radio" id="img1" name="imagen" value="static/capitolio.png"></input>
+                    <img style='width: 150px;' src="static/capitolio.png">
+                </label>
+                <label>
+                    <input type="radio" id="img1" name="imagen" value="static/coliseo.png"></input>
+                    <img style='width: 150px;' src="static/coliseo.png">
+                </label>
+                <label>
+                    <input type="radio" id="img1" name="imagen" value="static/egipto.png"></input>
+                    <img style='width: 150px;' src="static/egipto.png">
+                </label>
+                <label>
+                    <input type="radio" id="img1" name="imagen" value="static/tajmahal.png"></input>
+                    <img style='width: 150px;' src="static/tajmahal.png">
                 </label>
                 
             </div>
+            </br>
             
-            <div>
-                Mascara
+            <div class="mascara">
+                M&aacute;scara
                 <select name="mascara">
                     <option value="3">3</option>
                     <option value="5">5</option>
@@ -32,14 +84,17 @@
                 </select>
             </div>
             
-            <div>
+            <div class="sigma">
                 Sigma 1: <input type="text" name="sigma1" id="sigma1" style="max-width: 300px;" />
                 </br>
                 Sigma 2: <input type="text" name="sigma2" id="sigma2" style="max-width: 300px;" />
                 </br>
             </div>
             
-            <button type="submit">Procesar</button>
+            </br>
+            </br>
+            
+            <button class="enter" type="submit">Procesar</button>
             
         </form>
         
